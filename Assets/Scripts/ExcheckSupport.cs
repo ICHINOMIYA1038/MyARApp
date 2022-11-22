@@ -33,12 +33,12 @@ namespace UnityAR
             if(session == null)
             {
                 isReady = false;
-                ShowMessage("エラー:SerializeFieldの設定不備");
+                ShowMessage("?G???[:SerializeField???????s??");
             }
             else
             {
                 isReady = true;
-                ShowMessage("ARのサポート調査");
+                ShowMessage("AR???T?|?[?g????");
             }
         }
 
@@ -47,24 +47,24 @@ namespace UnityAR
             yield return ARSession.CheckAvailability();
             if(ARSession.state == ARSessionState.NeedsInstall)
             {
-                AddMessage("ARサービスのソフトウェアの更新が必要です、インストールします。");
+                AddMessage("");
                 yield return ARSession.Install();
 
             }
             if(ARSession.state == ARSessionState.NeedsInstall || ARSession.state == ARSessionState.Installing){
-                AddMessage("ソフトウェアの更新に失敗,または更新を拒否しました。");
+                AddMessage("");
                 AddMessage($"State:{ARSession.state}");
                 yield break;
 
             }
             if(ARSession.state==ARSessionState.Unsupported)
             {
-                AddMessage("このデバイスはサポートしていません");
+                AddMessage("?????f?o?C?X???T?|?[?g????????????");
                 AddMessage($"State:{ARSession.state}");
                 yield break;
             }
-            AddMessage("このデバイスはARをサポートしています。");
-            AddMessage("ARセッションの初期化");
+            AddMessage("?????f?o?C?X??AR???T?|?[?g???????????B");
+            AddMessage("AR?Z?b?V????????????");
             session.enabled = true;
             const float interval = 30f;
             var timer = interval;
@@ -76,11 +76,11 @@ namespace UnityAR
             }
             if (timer <= 0)
             {
-                AddMessage("初期化タイムオーバー");
+                AddMessage("???????^?C???I?[?o?[");
                 AddMessage($"State:{ARSession.state}");
                 yield break;
             }
-            AddMessage("初期化完了");
+            AddMessage("??????????");
             AddMessage($"State:{ARSession.state}");
         }
 

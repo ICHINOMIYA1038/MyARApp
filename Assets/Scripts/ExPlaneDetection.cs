@@ -41,13 +41,13 @@ namespace UnityAR
             if(placementPrefab == null||raycastManager==null ||planeManager.planePrefab==null||raycastManager==null||playerInput==null||playerInput.actions==null)
             {
                 isReady = false;
-                ShowMessage("エラー:SerializeFieldなどの設定不備");
+                ShowMessage("Plz set param");
             }
             else
             {
                 isReady = true;
-                ShowMessage("平面検出");
-                AddMessage("床を撮影してください,しばらくすると、平面が検出されます。>>>平面をタップすると椅子が表示されます。");
+                ShowMessage("detection");
+                AddMessage("tap screen");
             }
         }
         GameObject instantiatedObject = null;
